@@ -1,0 +1,11 @@
+<div class="board-column">
+  <div class="board-row" *ngFor="let row of game()?.boardState; let x = index">
+    <app-field *ngFor="let field of row; let y = index"
+               [terminalPosition]="field.terminalPosition"
+               [fieldType]="field.type"
+               [x]="x"
+               [y]="y"
+    ></app-field>
+  </div>
+
+</div>

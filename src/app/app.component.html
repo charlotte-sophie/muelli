@@ -1,0 +1,11 @@
+<mat-toolbar class="top-bar"
+             [ngClass]="{'top-bar__player1': currentPlayer() === 'player1', 'top-bar__player2': currentPlayer() === 'player2'}">
+  <span>Mülli</span>
+  <span>{{currentPlayer()}}</span>
+</mat-toolbar>
+
+<div *ngIf="currentPlayer() as current" class="center">
+  <app-player-info *ngIf="player1() as player1" [current]="current" [info]="player1"></app-player-info>
+  <app-board></app-board>
+  <app-player-info *ngIf="player2() as player2" [current]="current" [info]="player2"></app-player-info>
+</div>

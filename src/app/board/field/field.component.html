@@ -1,0 +1,28 @@
+<ng-container [ngSwitch]="fieldType">
+  <div class="field-box" *ngSwitchCase="'TERMINAL'">
+    <img class="vertical" alt="vertical" fill [ngSrc]="svg">
+    <div class="field-box center"
+         (click)="adjustGame(gameState())"
+         [ngClass]="{
+         'overlay__selectable': isSelectable$ | async,
+         'overlay__moveable': isNextPossibleMove$ | async,
+         'overlay__selected': isSelected$ | async,
+         'overlay__killable': isKillable$ | async
+         }"
+    >
+      <div *ngIf="color$ | async as color" [ngClass]="{
+         'stone__black': color  === 'player1',
+         'stone__white': color === 'player2',
+         }"></div>
+    </div>
+
+
+  </div>
+  <div class="field-box" *ngSwitchCase="'EMPTY'"></div>
+  <div class="field-box" *ngSwitchCase="'HORIZONTAL_PATH'">
+    <img class="horizontal" alt="vertical" fill ngSrc="assets/svg/horizontal.svg">
+  </div>
+  <div class="field-box" *ngSwitchCase="'VERTICAL_PATH'">
+    <img class="vertical" alt="vertical" fill ngSrc="assets/svg/vertical.svg">
+  </div>
+</ng-container>

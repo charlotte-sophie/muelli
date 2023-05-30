@@ -1,0 +1,18 @@
+.center {
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+
+.top-bar {
+  display: flex;
+  gap: 4rem;
+
+  &__player1 {
+    background-color: blue;
+  }
+  &__player2 {
+    background-color: red;
+  }
+}

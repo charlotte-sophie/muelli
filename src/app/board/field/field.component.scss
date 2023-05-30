@@ -1,0 +1,79 @@
+.field-box {
+  height: 7rem;
+  width: 7rem;
+  position: relative;
+}
+
+.vertical {
+  object-fit: scale-down;
+}
+
+.horizontal {
+  object-fit: scale-down;
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+  &__selectable {
+    @extend .overlay;
+    background-color: rgba(5, 236, 236, 0.5);
+
+    &:hover {
+      background-color: rgba(236, 5, 205, 0.5);
+    }
+  }
+
+  &__moveable {
+    @extend .overlay;
+    background-color: rgba(0, 80, 23, 0.5);
+    &:hover {
+      background-color: rgba(236, 5, 205, 0.5);
+    }
+  }
+
+  &__selected {
+    @extend .overlay;
+    background-color: rgba(173, 248, 194, 0.5);
+  }
+
+  &__killable {
+    @extend .overlay;
+    background-color: rgba(252, 173, 7, 0.5);
+    &:hover {
+      background-color: rgba(248, 6, 6, 0.5);
+    }
+  }
+}
+
+.stone {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  &__black {
+    @extend .stone;
+    background-color: blue;
+  }
+
+  &__white {
+    @extend .stone;
+    background-color: red;
+  }
+}
